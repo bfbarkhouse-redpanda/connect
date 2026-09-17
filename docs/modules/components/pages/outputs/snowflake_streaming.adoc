@@ -115,6 +115,12 @@ output:
 
 Ingest data into Snowflake using Snowpipe Streaming.
 
+There is also a `snowflake_streaming_pipe` output. Use this one if you want this output to create your
+destination table for you, or don't need Snowflake's Streaming Transformations (stream-static join
+enrichment, server-side `WHERE`-clause filtering) -- those require writing through a pipe, which
+this output doesn't use. See xref:components:outputs/snowflake_streaming_pipe.adoc[`snowflake_streaming_pipe`]'s
+own docs if you do need them.
+
 [%header,format=dsv]
 |===
 Snowflake column type:Allowed format in Redpanda Connect

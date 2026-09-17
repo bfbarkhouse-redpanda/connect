@@ -1,4 +1,4 @@
-// Copyright 2024 Redpanda Data, Inc.
+// Copyright 2026 Redpanda Data, Inc.
 //
 // Licensed as a Redpanda Enterprise file under the Redpanda Community
 // License (the "License"); you may not use this file except in compliance with
@@ -80,6 +80,12 @@ func snowflakeStreamingOutputConfig() *service.ConfigSpec {
 		Summary("Ingest data into Snowflake using Snowpipe Streaming.").
 		Description(`
 Ingest data into Snowflake using Snowpipe Streaming.
+
+There is also a `+"`snowflake_streaming_pipe`"+` output. Use this one if you want this output to create your
+destination table for you, or don't need Snowflake's Streaming Transformations (stream-static join
+enrichment, server-side `+"`WHERE`"+`-clause filtering) -- those require writing through a pipe, which
+this output doesn't use. See xref:components:outputs/snowflake_streaming_pipe.adoc[`+"`snowflake_streaming_pipe`"+`]'s
+own docs if you do need them.
 
 [%header,format=dsv]
 |===
